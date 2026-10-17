@@ -16,7 +16,7 @@ exclude = [
 ]
 
 [dependencies]
-iced = { version = "0.14", features = ["image", "advanced", "wgpu"] }
+iced = { version = "0.14", default-features = false, features = ["image", "advanced", "wgpu"] }
 iced_wgpu = "0.14"
 gstreamer = "0.23"
 gstreamer-app = "0.23" # appsink
@@ -26,6 +26,15 @@ glib = "0.20" # gobject traits and error type
 log = "0.4"
 thiserror = "1"
 url = "2" # media uri
+
+[features]
+default = ["iced-defaults"]
+# Enables iced's default features: the tiny-skia software renderer, web
+# colors, the thread-pool executor, theme detection (with its zbus stack)
+# and the platform backends. Disable with `default-features = false` to
+# trim the dependency graph; iced then needs a windowing backend and an
+# executor enabled from another dependency in the build.
+iced-defaults = ["iced/default"]
 
 [package.metadata.docs.rs]
 rustc-args = ["--cfg", "docsrs"]

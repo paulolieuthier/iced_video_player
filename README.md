@@ -50,6 +50,15 @@ impl App {
 }
 ```
 
+## Cargo features
+
+- `iced-defaults` *(enabled by default)* — enables iced's default features:
+  the tiny-skia software renderer, web colors, the thread-pool executor,
+  theme detection (with its zbus stack) and the platform backends. Disable
+  it with `default-features = false` to trim the dependency graph; iced
+  then needs a windowing backend and an executor enabled from another
+  dependency in the build.
+
 ## Building
 
 Follow the [GStreamer build instructions](https://github.com/sdroege/gstreamer-rs#installation). This should be able to compile on MSVC, MinGW, Linux, and MacOS.
